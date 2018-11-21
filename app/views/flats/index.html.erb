@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row col-12">
+    <h1>All our Flats</h1>
+  </div>
+
+  <div class="row col-12">
+    <p>You searched for . We found 4 flats out of our 4 on our website.</p>
+  </div>
+
+
+  <div class="row">
+  <% @flats.each do |flat| %>
+  <div class="col-4">
+      <div class="flat-card">
+          <div class="flat-card-image" style="background-image: url('https://images.unsplash.com/photo-1494526585095-c41746248156?w=1200')">
+          </div>
+
+          <div class="flat-card-content">
+
+            <div class="flat-card-title">
+              <h4><%= flat.name %></h4>
+            </div>
+
+            <p><%= flat.address %></p>
+
+            <div class="flex">
+              <i class="material-icons mr-2">people</i><span><%= flat.number_of_guests %></span>
+            </div>
+
+            <div class="flex ml-3">
+              <i class="material-icons mr-2">euro_symbol</i><span><%= flat.price_per_night %></span>
+            </div>
+
+        </div>
+
+          <div class="flat-card-actions">
+
+            <%= link_to "More info", flat_path(flat), class: 'brand'%>
+
+            <%= link_to "Edit", edit_flat_path(flat), class: 'ml-3 warning' %>
+
+            <%= link_to "Remove", flat_path(flat), method: :delete , class: 'ml-3 danger'%>
+
+
+          </div>
+
+      </div>
+  </div>
+  <% end %>
+</div>
+</div>
